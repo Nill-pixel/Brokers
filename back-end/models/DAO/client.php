@@ -34,7 +34,12 @@ class ClientDAO
     $stm->bindParam(':name', $client->name);
     $stm->bindParam(':email', $client->email);
     $stm->bindParam(':password', $client->password);
+    $stm->execute();
 
+    $client_id = $this->pdo->lastInsertId();
+
+    $stm = $this->pdo->prepare("INSERT INTO client_current_accounts (client_id) VALUES(:client_id)");
+    $stm->bindParam(':client_id', $client_id);
     $stm->execute();
     return ($stm);
   }
@@ -58,6 +63,22 @@ class ClientDAO
     $stm->bindParam(":id", $id);
     $stm->execute();
 
-    return $stm->fetchAll(PDO::FETCH_ASSOC);
+    return true;
+  }
+
+  public function loginClient($email, $password)
+  {
+    $stm = $this->pdo->prepare("SELECT * FROM clients WHERE email = :email");
+    $stm->bindParam(':email', $email);
+    $stm->execute();
+
+    $client = $stm->fetch(PDO::FETCH_ASSOC);
+
+    if ($client && password_verify($password, $client['password'])) {
+      $_SESSION['client_id'] = $client['id'];
+      return true;
+    } else {
+      return false;
+    }
   }
 }

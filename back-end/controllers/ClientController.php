@@ -39,6 +39,18 @@ class ClientController
           $client = new ClientDTO($name, $email, $password);
           $result = $this->client->saveClient($client);
           echo json_encode($result);
+        } else if ($this->endpoint === '/client/login') {
+          $data = json_decode(file_get_contents('php://input'), true);
+          $password = $data['password'];
+          $email = $data['email'];
+
+          $result = $this->client->loginClient($email, $password);
+
+          if ($result) {
+            echo json_encode(['client success login']);
+          } else {
+            echo json_encode(['error' => 'Client update failed']);
+          }
         }
         break;
       case 'DELETE':
