@@ -38,9 +38,9 @@
         class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
         <div
           class="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
-          <a class="font-medium text-blue-600 sm:py-6 dark:text-blue-500" href="#" aria-current="page">Transation</a>
           <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
-            href="#">Withdraw</a>
+            href="#">Transation</a>
+          <a class="font-medium text-blue-600 sm:py-6 dark:text-blue-500" href="#" aria-current="page">Withdraw</a>
           <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 dark:text-neutral-400 dark:hover:text-neutral-500"
             href="#">Deposit</a>
 
@@ -98,64 +98,94 @@
       </div>
     </nav>
   </header>
-  <div class=" mx-20 grid grid-cols-12 gap-6 pt-6 pb-20">
-    <div class="col-span-12 md:col-span-5">
-      <div
-        class="h-full p-10 bg-white dark:bg-muted-1000 rounded-xl border border-muted-200 dark:border-muted-800 shadow-xl shadow-muted-400/10 dark:shadow-muted-800/10">
-        <div class="h-full flex flex-col justify-between gap-5">
-          <h4 class="font-heading font-semibold text-sm uppercase text-muted-400">
-            Mara's Account
-          </h4>
+  <!-- Announcement Banner -->
+  <div class="bg-gradient-to-r from-purple-600 to-blue-400">
+    <div class="max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 mx-auto">
+      <!-- Grid -->
+      <div class="grid justify-center md:grid-cols-2 md:justify-between md:items-center gap-2">
+        <div class="text-center md:text-start md:order-2 md:flex md:justify-end md:items-center">
+          <p class="me-5 inline-block text-sm font-semibold text-white">
 
-          <h2 class="font-heading font-medium text-4xl ptablet:text-2xl text-muted-800 dark:text-white">
-            Welcome back, Mara! 👋
-          </h2>
-
-          <p class="font-sans text-muted-500">
-            Everything seems ok and up-to-date with your account since your last
-            visit.
           </p>
         </div>
+        <!-- End Col -->
+
+        <div class="flex items-center">
+          <span class="inline-block border-e border-white/30 w-px h-5 mx-2"></span>
+          <a class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-lg font-medium text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-all text-sm"
+            href="#">
+            Withdraw
+          </a>
+        </div>
+        <!-- End Col -->
       </div>
+      <!-- End Grid -->
     </div>
-    <div class="col-span-12 md:col-span-6">
-      <!--Blance widget-->
-      <div class="
-                    h-full
-                    py-16
-                    px-10
-                    bg-white
-                    dark:bg-muted-1000
-                    rounded-xl
-                    border border-muted-200
-                    dark:border-muted-800
-                    shadow-xl shadow-muted-400/10
-                    dark:shadow-muted-800/10
-                  ">
-        <div class="h-full flex flex-col justify-between gap-7">
-          <h4 class="font-heading font-semibold text-sm uppercase text-muted-400">
-            Money
-          </h4>
+  </div>
+  <!-- End Announcement Banner -->
+  <!-- Hero -->
+  <div class="relative overflow-hidden">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">
+      <div class="text-center">
+        <div class="mt-7 sm:mt-12 mx-auto max-w-xl relative">
+          <!-- Form -->
+          <form>
+            <div
+              class="relative z-10 flex space-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-gray-900/20">
+              <div class="flex-[1_0_0%] ">
+                <label for="hs-search-article-1" class="block text-sm text-gray-700 font-medium dark:text-white"><span
+                    class="sr-only">Withdraw Money</span></label>
+                <input type="text" name="hs-search-article-1" id="hs-search-article-1"
+                  class="py-2.5 px-4 block w-full border-transparent rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                  placeholder="Withdraw Money">
+              </div>
+              <div class="flex-[0_0_auto] ">
+                <a class="size-[46px] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                  href="#">
+                  <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="12" y1="10" x2="12" y2="14"></line>
+                    <polyline points="15 13 12 16 9 13"></polyline>
+                    <path d="M17 7H7"></path>
+                  </svg>
 
-          <div>
-            <span class="
-                          font-sans font-medium
-                          text-4xl text-muted-800
-                          dark:text-white
-                          before:content-['$'] before:text-xl
-                        ">
-              0.00
-            </span>
-          </div>
+                </a>
+              </div>
+            </div>
+          </form>
+          <!-- End Form -->
 
-          <div class="space-y-1">
-            <p class="font-sans text-muted-500">No outgoing transactions yet</p>
-            <div class="w-full h-1 bg-muted-200 dark:bg-muted-800"></div>
+          <!-- SVG Element -->
+          <div class="hidden md:block absolute top-0 end-0 -translate-y-12 translate-x-20">
+            <svg class="w-16 h-auto text-orange-500" width="121" height="135" viewBox="0 0 121 135" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164" stroke="currentColor" stroke-width="10"
+                stroke-linecap="round" />
+              <path d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5" stroke="currentColor"
+                stroke-width="10" stroke-linecap="round" />
+              <path d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874" stroke="currentColor" stroke-width="10"
+                stroke-linecap="round" />
+            </svg>
           </div>
+          <!-- End SVG Element -->
+
+          <!-- SVG Element -->
+          <div class="hidden md:block absolute bottom-0 start-0 translate-y-10 -translate-x-32">
+            <svg class="w-40 h-auto text-cyan-500" width="347" height="188" viewBox="0 0 347 188" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 82.4591C54.7956 92.8751 30.9771 162.782 68.2065 181.385C112.642 203.59 127.943 78.57 122.161 25.5053C120.504 2.2376 93.4028 -8.11128 89.7468 25.5053C85.8633 61.2125 130.186 199.678 180.982 146.248L214.898 107.02C224.322 95.4118 242.9 79.2851 258.6 107.02C274.299 134.754 299.315 125.589 309.861 117.539L343 93.4426"
+                stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+            </svg>
+          </div>
+          <!-- End SVG Element -->
         </div>
       </div>
     </div>
   </div>
+  <!-- End Hero -->
 </body>
 
 </html>
