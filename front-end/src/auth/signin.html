@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="../css/output.css" rel="stylesheet">
   <script src="../../node_modules/preline/dist/preline.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
               Or</div>
 
             <!-- Form -->
-            <form method="POST" action="{{ route('sign.in') }}">
+            <form id="sign-in">
               <input type="hidden" value="n" name="name">
               <div class="grid gap-y-4">
                 <!-- Form Group -->
@@ -95,6 +95,7 @@
       </div>
     </main>
   </div>
+  <script src="../js/auth.js"></script>
 </body>
 
 </html>

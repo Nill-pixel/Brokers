@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>Editar Cliente</h1>
+  <form id="editForm">
+    <input type="hidden" id="clientId">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br>
+    <button type="submit">Salvar Alterações</button>
+  </form>
+
+  <script src="js/update.js"></script>
+</body>
+
+</html>

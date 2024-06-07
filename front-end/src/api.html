@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>Cliente API</h1>
+  <button onclick="getAllClients()">Obter todos os Clientes</button>
+  <table border="1" id="clientsTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <h1>Adicionar Cliente</h1>
+  <form id="addClientForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <h1>Buscar Cliente por ID</h1>
+  <form id="fetchClientForm">
+    <label for="clientId">ID do Cliente:</label>
+    <input type="number" id="clientId" name="clientId" required>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div id="clientInfo"></div>
+  <pre id="apiResponse"></pre>
+
+  <script src="js/api.js"></script>
+</body>
+
+</html>

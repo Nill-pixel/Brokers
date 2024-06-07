@@ -17,6 +17,14 @@ class EmployeeDAO
 
     return $stm->fetchAll(PDO::FETCH_ASSOC);
   }
+  public function getEmployeeById($id)
+  {
+    $stm = $this->pdo->prepare("SELECT * FROM employees WHERE id = :id");
+    $stm->bindParam(":id", $id);
+    $stm->execute();
+
+    return $stm->fetchAll(PDO::FETCH_ASSOC);
+  }
 
   public function saveEmployee(EmpoyeeDTO $employeeDTO)
   {
@@ -31,5 +39,7 @@ class EmployeeDAO
     $stm->bindParam(':base_salary', $employeeDTO->base_salary);
     $stm->bindParam(':created_at', $createdString);
     $stm->execute();
+
+    return true;
   }
 }

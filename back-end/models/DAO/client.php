@@ -3,7 +3,7 @@ require_once './config/DB/db.php';
 /**
  * @property ClientDAO $this
  */
-
+session_start();
 class ClientDAO
 {
   private $pdo;
@@ -25,31 +25,43 @@ class ClientDAO
     $stm->bindParam(":id", $id);
     $stm->execute();
 
+    if (empty($stm)) {
+      return null;
+    }
     return $stm->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function saveClient(ClientDTO $client)
   {
-    $stm = $this->pdo->prepare("INSERT INTO clients (name, email, password) VALUES(:name, :email, :password)");
+    $created = (new DateTime())->setTimestamp(time());
+    $createdString = $created->format('Y-m-d H:i:s');
+
+    $stm = $this->pdo->prepare("INSERT INTO clients (name, email, password, created_at) VALUES(:name, :email, :password, :created_at)");
     $stm->bindParam(':name', $client->name);
     $stm->bindParam(':email', $client->email);
     $stm->bindParam(':password', $client->password);
+    $stm->bindParam(':created_at', $createdString);
     $stm->execute();
 
     $client_id = $this->pdo->lastInsertId();
 
-    $stm = $this->pdo->prepare("INSERT INTO client_current_accounts (client_id) VALUES(:client_id)");
+    $stm = $this->pdo->prepare("INSERT INTO client_current_accounts (client_id, created_at) VALUES(:client_id, :created_at)");
     $stm->bindParam(':client_id', $client_id);
+    $stm->bindParam(':created_at', $createdString);
     $stm->execute();
     return ($stm);
   }
   public function DeleteClient($id)
   {
+    $stm = $this->pdo->prepare("DELETE FROM client_current_accounts WHERE client_id = :id");
+    $stm->bindParam(":id", $id);
+    $stm->execute();
+
     $stm = $this->pdo->prepare("DELETE FROM clients WHERE id = :id");
     $stm->bindParam(":id", $id);
     $stm->execute();
 
-    return $stm->fetchAll(PDO::FETCH_ASSOC);
+    return true;
   }
   public function UpdateClient(ClientDTO $client, $id)
   {

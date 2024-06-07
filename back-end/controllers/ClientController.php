@@ -1,15 +1,18 @@
 <?php
 require_once './models/DAO/client.php';
 require_once './models/DTO/client.php';
+require_once './config/SessionManager.php';
 header('Content-Type:application/json');
 class ClientController
 {
   private $client;
   private $endpoint;
   private $method;
+  private $session_manager;
   public function __construct()
   {
     $this->client = new ClientDAO();
+    $this->session_manager = new SessionManager();
     $this->endpoint = $_SERVER['PATH_INFO'];
     $this->method = $_SERVER['REQUEST_METHOD'];
   }
@@ -26,7 +29,18 @@ class ClientController
         } else if (preg_match('/^\/client\/(\d+)$/', $this->endpoint, $matches)) {
           $id = $matches[1];
           $result = $this->client->getClientById($id);
-          echo json_encode([$result]);
+          if ($result) {
+            echo json_encode($result);
+          } else {
+            echo json_encode(['error' => 'Client update failed']);
+          }
+        } else if ($this->endpoint === '/session') {
+          $result = $this->session_manager->isLogged();
+          if ($result) {
+            echo json_encode(['logged' => true]);
+          } else {
+            echo json_encode(['logged' => false]);
+          }
         }
         break;
       case 'POST':
@@ -49,7 +63,7 @@ class ClientController
           if ($result) {
             echo json_encode(['client success login']);
           } else {
-            echo json_encode(['error' => 'Client update failed']);
+            echo json_encode(['error' => 'Client login failed']);
           }
         }
         break;
@@ -57,7 +71,9 @@ class ClientController
         if (preg_match('/^\/client\/(\d+)$/', $this->endpoint, $matches)) {
           $id = $matches[1];
           $result = $this->client->DeleteClient($id);
-          echo json_encode(['client removed']);
+          if ($result) {
+            echo json_encode(['client removed']);
+          }
         }
         break;
       case 'PUT':
@@ -77,9 +93,6 @@ class ClientController
         if (!isset($data['email'])) {
           $errors[] = 'Missing email field';
         }
-        if (!isset($data['password'])) {
-          $errors[] = 'Missing password field';
-        }
 
         if (!empty($errors)) {
           echo json_encode(['errors' => $errors]);
@@ -90,6 +103,10 @@ class ClientController
         if (!$oldClient) {
           echo json_encode(['error' => 'Client not found']);
           return;
+        }
+
+        if (isset($data['password']) && $data['password']) {
+          $oldClient['password'] = $data['password'];
         }
 
         $clientData = array_merge($oldClient, $data);
