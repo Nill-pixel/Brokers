@@ -7,9 +7,11 @@ session_start();
 class ClientDAO
 {
   private $pdo;
+  private $session;
   public function __construct()
   {
     $this->pdo = DB::getConnection();
+    $this->session = new SessionManager();
   }
 
   public function getClient()
@@ -36,8 +38,9 @@ class ClientDAO
     $created = (new DateTime())->setTimestamp(time());
     $createdString = $created->format('Y-m-d H:i:s');
 
-    $stm = $this->pdo->prepare("INSERT INTO clients (name, email, password, created_at) VALUES(:name, :email, :password, :created_at)");
-    $stm->bindParam(':name', $client->name);
+    $stm = $this->pdo->prepare("INSERT INTO clients (firstName, lastName, email, password, created_at) VALUES(:firstName, lastName, :email, :password, :created_at)");
+    $stm->bindParam(':firstName', $client->firstName);
+    $stm->bindParam(':lastName', $client->lastName);
     $stm->bindParam(':email', $client->email);
     $stm->bindParam(':password', $client->password);
     $stm->bindParam(':created_at', $createdString);
@@ -67,8 +70,9 @@ class ClientDAO
   {
     $updated = (new DateTime())->setTimestamp(time());
     $updatedString = $updated->format('Y-m-d H:i:s');
-    $stm = $this->pdo->prepare("UPDATE clients SET name = :name, email = :email, password = :password, updated_at = :updated_at WHERE id = :id");
-    $stm->bindParam(':name', $client->name);
+    $stm = $this->pdo->prepare("UPDATE clients SET firstName = :firstName, lastName = :lastName, email = :email, password = :password, updated_at = :updated_at WHERE id = :id");
+    $stm->bindParam(':firstName', $client->firstName);
+    $stm->bindParam(':lastName', $client->lastName);
     $stm->bindParam(':email', $client->email);
     $stm->bindParam(':password', $client->password);
     $stm->bindParam(':updated_at', $updatedString);
@@ -92,5 +96,17 @@ class ClientDAO
     } else {
       return false;
     }
+  }
+  public function getClientProfile()
+  {
+    $id = $_SESSION['client_id'];
+    $stm = $this->pdo->prepare("SELECT * FROM clients WHERE id = :id");
+    $stm->bindParam(":id", $id);
+    $stm->execute();
+
+    if (empty($stm)) {
+      return null;
+    }
+    return $stm->fetch(PDO::FETCH_ASSOC);
   }
 }

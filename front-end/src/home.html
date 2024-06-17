@@ -8,6 +8,7 @@
   <link href="./css/output.css" rel="stylesheet">
   <script src="../node_modules/preline/dist/preline.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
 </head>
 
 <body>
@@ -75,21 +76,9 @@
               <div
                 class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-900 dark:border dark:border-neutral-700"
                 aria-labelledby="hs-dropdown-with-header">
-                <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-neutral-800">
-                  <p class="text-sm text-gray-500 dark:text-neutral-400">Signed in as</p>
-                  <p class="text-sm font-medium text-gray-800 dark:text-neutral-300">james@site.com</p>
+                <div id="profile-email" class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-neutral-800">
                 </div>
-                <div class="mt-2 py-2 first:pt-0 last:pb-0">
-                  <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300"
-                    href="#">
-                    <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round">
-                      <path d="M15 3V15H9V3H15ZM12 9H18V11H12Z" />
-                      <path d="M12 12v9" />
-                    </svg>
-                    Logout
-                  </a>
+                <div id="profile-logout" class="mt-2 py-2 first:pt-0 last:pb-0">
                 </div>
               </div>
             </div>
@@ -99,51 +88,25 @@
     </nav>
   </header>
   <div class=" mx-20 grid grid-cols-12 gap-6 pt-6 pb-20">
-    <div class="col-span-12 md:col-span-5">
+    <div class="col-span-12 md:col-span-6">
       <div
         class="h-full p-10 bg-white dark:bg-muted-1000 rounded-xl border border-muted-200 dark:border-muted-800 shadow-xl shadow-muted-400/10 dark:shadow-muted-800/10">
-        <div class="h-full flex flex-col justify-between gap-5">
-          <h4 class="font-heading font-semibold text-sm uppercase text-muted-400">
-            Mara's Account
-          </h4>
+        <div id="welcome" class="h-full flex flex-col justify-between gap-5">
 
-          <h2 class="font-heading font-medium text-4xl ptablet:text-2xl text-muted-800 dark:text-white">
-            Welcome back, Mara! 👋
-          </h2>
-
-          <p class="font-sans text-muted-500">
-            Everything seems ok and up-to-date with your account since your last
-            visit.
-          </p>
         </div>
       </div>
     </div>
     <div class="col-span-12 md:col-span-6">
       <!--Blance widget-->
-      <div class="
-                    h-full
-                    py-16
-                    px-10
-                    bg-white
-                    dark:bg-muted-1000
-                    rounded-xl
-                    border border-muted-200
-                    dark:border-muted-800
-                    shadow-xl shadow-muted-400/10
-                    dark:shadow-muted-800/10
-                  ">
+      <div class="h-full py-16 px-10 bg-white dark:bg-muted-1000 rounded-xl border border-muted-200 dark:border-muted-800
+        shadow-xl shadow-muted-400/10 dark:shadow-muted-800/10">
         <div class="h-full flex flex-col justify-between gap-7">
           <h4 class="font-heading font-semibold text-sm uppercase text-muted-400">
             Money
           </h4>
-
           <div>
-            <span class="
-                          font-sans font-medium
-                          text-4xl text-muted-800
-                          dark:text-white
-                          before:content-['$'] before:text-xl
-                        ">
+            <span
+              class="font-sans font-medium text-4xl text-muted-800 dark:text-white before:content-['$'] before:text-xl">
               0.00
             </span>
           </div>
@@ -155,7 +118,79 @@
         </div>
       </div>
     </div>
+    <div class="col-span-12 md:col-span-12">
+      <div
+        class="py-4  md:py-7  px-4  md:px-8  xl:px-10  bg-white  dark:bg-muted-1000  rounded-xl  border border-muted-200  dark:border-muted-800  shadow-xl shadow-muted-400/10  dark:shadow-muted-800/10">
+        <div class="sm:flex items-center justify-between">
+          <h4 class="font-heading font-semibold text-sm uppercase text-muted-400">
+            Recent Transactions
+          </h4>
+          <a href="/transactions.html"
+            class=" group inline-flex items-center gap-3 text-primary-500 hover:text-primary-400 transition-colors duration-300">
+            <span class="font-sans font-medium text-base">View all</span>
+            <iconify-icon class="iconify w-4 h-4 group-hover:translate-x-1 transition-transform duration-300 "
+              icon="lucide:arrow-right"></iconify-icon>
+          </a>
+        </div>
+        <div class="mt-7 overflow-x-auto">
+          <table class="w-full whitespace-nowrap">
+            <thead>
+              <tr>
+                <th class="w-1/5"></th>
+                <th class="w-2/5"></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!--Row-->
+              <tr tabindex="0">
+                <td class="py-2">
+                  <span class="font-sans text-sm font-medium leading-none text-muted-500 dark:text-muted-300">
+                    Sep 26, 2022
+                  </span>
+                </td>
+                <td class="py-2">
+                  <span class="font-sm  text-sm  font-medium  leading-none  text-muted-500  dark:text-muted-300">
+                    Victoria's Treats
+                  </span>
+                </td>
+                <td class="py-2 px-4">
+                  <span class="font-sans text-base font-medium leading-none text-muted-800 dark:text-muted-100">
+                    - $52.14
+                  </span>
+                </td>
+                <td class="py-2 px-4">
+                  <span class="font-sans text-sm font-medium leading-none text-muted-400">
+                    xxx4565494
+                  </span>
+                </td>
+                <td class="py-2 px-4">
+                  <span
+                    class="inline-block  font-sans  text-xs  py-1.5  px-3  m-1  rounded-full  bg-info-100  dark:bg-info-500/10  text-info-500">
+                    Processing
+                  </span>
+                </td>
+                <td class="py-2 px-4">
+                  <div class="flex items-center gap-2 text-muted-400">
+                    <iconify-icon class="iconify w-5 h-5 flex items-center justify-center text-lg"
+                      icon="ph:credit-card-duotone"></iconify-icon>
+                    <span class="font-sans text-sm font-medium leading-none">
+                      Credit card
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-  <script src="js/session.js"></script>
+  <script src="api/session.js"></script>
+  <script src="api/client.js"></script>
 </body>
+
 </html>

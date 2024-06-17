@@ -34,6 +34,13 @@ class ClientController
           } else {
             echo json_encode(['error' => 'Client update failed']);
           }
+        } else if ($this->endpoint === '/client/profile') {
+          $result = $this->client->getClientProfile();
+          if ($result) {
+            echo json_encode($result);
+          } else {
+            echo json_encode(['error' => 'Client profile not found']);
+          }
         } else if ($this->endpoint === '/session') {
           $result = $this->session_manager->isLogged();
           if ($result) {
@@ -41,16 +48,19 @@ class ClientController
           } else {
             echo json_encode(['logged' => false]);
           }
+        } else if ($this->endpoint === '/logout') {
+          $this->session_manager->destroy();
         }
         break;
       case 'POST':
         if ($this->endpoint === '/client') {
           $data = json_decode(file_get_contents('php://input'), true);
-          $name = $data['name'];
+          $firstName = $data['firstName'];
+          $lastName = $data['lastName'];
           $password = $data['password'];
           $email = $data['email'];
 
-          $client = new ClientDTO($name, $email, $password);
+          $client = new ClientDTO($firstName, $lastName, $email, $password);
           $result = $this->client->saveClient($client);
           echo json_encode($result);
         } else if ($this->endpoint === '/client/login') {
@@ -61,7 +71,7 @@ class ClientController
           $result = $this->client->loginClient($email, $password);
 
           if ($result) {
-            echo json_encode(['client success login']);
+            echo json_encode(['success' => 'client success login']);
           } else {
             echo json_encode(['error' => 'Client login failed']);
           }
@@ -87,7 +97,10 @@ class ClientController
         $data = json_decode(file_get_contents('php://input'), true);
 
         $errors = [];
-        if (!isset($data['name'])) {
+        if (!isset($data['firstName'])) {
+          $errors[] = 'Missing name field';
+        }
+        if (!isset($data['lastName'])) {
           $errors[] = 'Missing name field';
         }
         if (!isset($data['email'])) {
@@ -110,7 +123,7 @@ class ClientController
         }
 
         $clientData = array_merge($oldClient, $data);
-        $client = new ClientDTO($clientData['name'], $clientData['email'], $clientData['password']);
+        $client = new ClientDTO($clientData['firstName'], $clientData['lastName'], $clientData['email'], $clientData['password']);
         $result = $this->client->UpdateClient($client, $id);
 
         if ($result) {
