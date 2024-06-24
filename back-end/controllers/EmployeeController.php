@@ -33,12 +33,14 @@ class EmployeerController
         if ($this->endpoint === '/employee') {
           $data = json_decode(file_get_contents('php://input'), true);
           $name = $data['name'];
+          $email = $data['email'];
+          $password = $data['password'];
           $admission_date = $data['admission_date'];
           $resignation_date = $data['resignation_date'];
           $phone = $data['phone'];
           $base_salary = $data['base_salary'];
 
-          $employee = new EmpoyeeDTO($name, $admission_date, $resignation_date, $phone, $base_salary);
+          $employee = new EmpoyeeDTO($name, $email, $password, $admission_date, $resignation_date, $phone, $base_salary);
           $result = $this->employee->saveEmployee($employee);
           echo json_encode($result);
         }

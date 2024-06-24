@@ -31,8 +31,10 @@ class EmployeeDAO
     $created = (new DateTime())->setTimestamp(time());
     $createdString = $created->format('Y-m-d H:i:s');
 
-    $stm = $this->pdo->prepare('INSERT INTO employees (name, admission_date, resignation_date, phone, base_salary, created_at) VALUES (:name, :admission_date, :resignation_date, :phone, :base_salary, :created_at)');
+    $stm = $this->pdo->prepare('INSERT INTO employees (name, email, password, admission_date, resignation_date, phone, base_salary, created_at) VALUES (:name, :email, :password, :admission_date, :resignation_date, :phone, :base_salary, :created_at)');
     $stm->bindParam(':name', $employeeDTO->name);
+    $stm->bindParam(':email', $employeeDTO->email);
+    $stm->bindParam(':password', $employeeDTO->password);
     $stm->bindParam(':admission_date', $employeeDTO->admission_date);
     $stm->bindParam(':resignation_date', $employeeDTO->resignation_date);
     $stm->bindParam(':phone', $employeeDTO->phone);
@@ -40,6 +42,21 @@ class EmployeeDAO
     $stm->bindParam(':created_at', $createdString);
     $stm->execute();
 
-    return true;
+    return $stm;
+  }
+  public function loginClient($email, $password)
+  {
+    $stm = $this->pdo->prepare("SELECT * FROM employee WHERE email = :email");
+    $stm->bindParam(':email', $email);
+    $stm->execute();
+
+    $employee = $stm->fetch(PDO::FETCH_ASSOC);
+
+    if ($employee && password_verify($password, $employee['password'])) {
+      $_SESSION['client_id'] = $employee['id'];
+      return true;
+    } else {
+      return false;
+    }
   }
 }

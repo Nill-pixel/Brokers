@@ -8,7 +8,6 @@
   - [Instalação](#instalacao)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Uso](#uso)
-- [Contribuindo](#contribuindo)
 - [Licença](#licenca)
 
 ## Sobre <a name="sobre"></a>
