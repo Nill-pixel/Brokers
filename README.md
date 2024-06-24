@@ -152,8 +152,8 @@ Para usar o sistema, siga os passos abaixo:
    ```html
    <div class="bg-white p-6 rounded-lg shadow-lg">
      <h2 class="text-2xl font-bold mb-2">Informações do Corretor</h2>
-     <p class="text-gray-700">Nome: John Doe</p>
-     <p class="text-gray-700">Telefone: (123) 456-7890</p>
+     <p class="text-gray-700">Nome: Nilvany Sunguessungue</p>
+     <p class="text-gray-700">Telefone: (+244) 922108848</p>
    </div>
    ```
 
@@ -177,13 +177,9 @@ Para usar o sistema, siga os passos abaixo:
    }
    ```
 
-## Contribuindo <a name="contribuindo"></a>
-
-Contribuições são bem-vindas! Por favor, veja o [CONTRIBUTING.md](../CONTRIBUTING.md) para mais detalhes.
-
 ## Licença <a name="licenca"></a>
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
