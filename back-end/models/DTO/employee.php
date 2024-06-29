@@ -16,7 +16,7 @@ class EmpoyeeDTO
   {
     $this->name = $name;
     $this->email = $email;
-    $this->password = $password;
+    $this->password = password_hash($password, PASSWORD_DEFAULT);
     $this->admission_date = $admission_date;
     $this->resignation_date = $resignation_date;
     $this->phone = $phone;
