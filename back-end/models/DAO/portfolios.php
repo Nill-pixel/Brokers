@@ -9,6 +9,14 @@ class PortfoliosDAO
   {
     $this->pdo = DB::getConnection();
   }
+  public function getById()
+  {
+    $client_id = $_SESSION['client_id'];
+    $stm = $this->pdo->prepare("SELECT * FROM portfolios WHERE client_id = :client_id");
+    $stm->bindParam(":client_id", $client_id);
+    $stm->execute();
+    return $stm->fetch(PDO::FETCH_ASSOC);
+  }
 
   function create(PortfoliosDTO $portfolios)
   {

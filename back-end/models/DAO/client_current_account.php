@@ -35,6 +35,7 @@ class ClientCurrentAccountDAO
     $stm->bindParam(":client_id", $client_id);
     $stm->execute();
 
+
     return true;
   }
 }
