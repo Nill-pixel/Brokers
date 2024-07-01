@@ -18,6 +18,13 @@ class PortfoliosDAO
     return $stm->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function getAll()
+  {
+    $stm = $this->pdo->prepare("SELECT * FROM portfolios");
+    $stm->execute();
+    return $stm->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   function savePortfolio(PortfoliosDTO $portfolios)
   {
     $created = (new DateTime())->setTimestamp(time());

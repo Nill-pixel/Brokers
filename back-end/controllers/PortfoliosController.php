@@ -44,6 +44,33 @@ class PortfoliosController
     header('Content-Type: application/json');
 
     switch ($this->method) {
+      case 'GET':
+        if ($this->endpoint === '/portfolios/values') {
+          $created = (new DateTime())->setTimestamp(time());
+          $createdString = $created->format('Y-m-d H:i:s');
+
+          $portfolios = $this->portfolios->getAll();
+          foreach ($portfolios as $portfolio) {
+            $portfolio_id = $portfolio['id'];
+            $total_value = 0.0;
+
+            $stocks = $this->portfolios_stocks->getJoin($portfolio_id);
+
+            foreach ($stocks as $stock) {
+              $quantity = $stock['quantity'];
+              $price = $stock['transaction_value'];
+              $total_value += $quantity * $price;
+            }
+            $portfolio_value = new PortFoliosValuesDTO($portfolio_id, $createdString, $total_value);
+            $result = $this->portfolios_values->savePortfoliosValues($portfolio_value);
+            if ($result) {
+              echo json_encode(['success' => 'Get Update portfolios values with success']);
+            } else {
+              echo json_encode(['error' => 'Get Update portfolios values with error']);
+            }
+          }
+        }
+        break;
       case 'POST':
         if ($this->endpoint === '/portfolios') {
           $data = json_decode(file_get_contents('php://input'), true);

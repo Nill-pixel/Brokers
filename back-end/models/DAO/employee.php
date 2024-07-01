@@ -44,7 +44,7 @@ class EmployeeDAO
     $stm->bindParam(':created_at', $createdString);
     $stm->execute();
 
-    return $stm;
+    return true;
   }
   public function loginEmployee($email, $password)
   {
