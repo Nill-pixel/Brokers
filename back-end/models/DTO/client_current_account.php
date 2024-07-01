@@ -1,5 +1,5 @@
 <?php
-class ClientCurrentAccountsDTO
+class ClientCurrentAccountDTO
 {
   public $id;
   public $client_id;
@@ -7,9 +7,8 @@ class ClientCurrentAccountsDTO
   public $created_at;
   public $updated_at;
 
-  public function __construct($client_id, $balance)
+  public function __construct($balance)
   {
-    $this->client_id = $client_id;
     $this->balance = $balance;
   }
 }

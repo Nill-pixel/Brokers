@@ -27,11 +27,11 @@ class ClientCurrentAccountDAO
     return $stm->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function deposit_widraw($balance)
+  public function deposit_widraw(ClientCurrentAccountDTO $clientCurrentAccount)
   {
     $client_id = $_SESSION['client_id'];
     $stm = $this->pdo->prepare("UPDATE client_current_accounts SET balance = :balance WHERE client_id = :client_id");
-    $stm->bindParam(":balance", $balance);
+    $stm->bindParam(":balance", $clientCurrentAccount->balance);
     $stm->bindParam(":client_id", $client_id);
     $stm->execute();
 

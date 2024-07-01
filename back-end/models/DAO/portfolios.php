@@ -18,7 +18,7 @@ class PortfoliosDAO
     return $stm->fetch(PDO::FETCH_ASSOC);
   }
 
-  function create(PortfoliosDTO $portfolios)
+  function savePortfolio(PortfoliosDTO $portfolios)
   {
     $created = (new DateTime())->setTimestamp(time());
     $createdString = $created->format('Y-m-d H:i:s');
