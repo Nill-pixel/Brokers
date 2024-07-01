@@ -1,5 +1,5 @@
 <?php
-class StocksQuotesDTO
+class StockQuotesDTO
 {
   public $id;
   public $stock_id;

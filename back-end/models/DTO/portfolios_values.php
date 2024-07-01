@@ -1,5 +1,5 @@
 <?php
-class PortFoliosValueDTO
+class PortFoliosValuesDTO
 {
   public $id;
   public $portfolio_id;

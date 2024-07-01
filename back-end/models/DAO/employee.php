@@ -1,6 +1,8 @@
 <?php
 require_once './config/DB/db.php';
-
+/**
+ * @property EmployeeDAO $this
+ */
 class EmployeeDAO
 {
   private $pdo;
@@ -44,16 +46,16 @@ class EmployeeDAO
 
     return $stm;
   }
-  public function loginClient($email, $password)
+  public function loginEmployee($email, $password)
   {
-    $stm = $this->pdo->prepare("SELECT * FROM employee WHERE email = :email");
+    $stm = $this->pdo->prepare("SELECT * FROM employees WHERE email = :email");
     $stm->bindParam(':email', $email);
     $stm->execute();
 
     $employee = $stm->fetch(PDO::FETCH_ASSOC);
 
     if ($employee && password_verify($password, $employee['password'])) {
-      $_SESSION['client_id'] = $employee['id'];
+      $_SESSION['employee_id'] = $employee['id'];
       return true;
     } else {
       return false;

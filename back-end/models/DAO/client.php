@@ -3,7 +3,6 @@ require_once './config/DB/db.php';
 /**
  * @property ClientDAO $this
  */
-session_start();
 class ClientDAO
 {
   private $pdo;
@@ -38,7 +37,7 @@ class ClientDAO
     $created = (new DateTime())->setTimestamp(time());
     $createdString = $created->format('Y-m-d H:i:s');
 
-    $stm = $this->pdo->prepare("INSERT INTO clients (firstName, lastName, email, password, created_at) VALUES(:firstName, lastName, :email, :password, :created_at)");
+    $stm = $this->pdo->prepare("INSERT INTO clients (firstName, lastName, email, password, created_at) VALUES(:firstName, :lastName, :email, :password, :created_at)");
     $stm->bindParam(':firstName', $client->firstName);
     $stm->bindParam(':lastName', $client->lastName);
     $stm->bindParam(':email', $client->email);

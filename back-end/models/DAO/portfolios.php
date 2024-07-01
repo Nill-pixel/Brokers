@@ -11,9 +11,9 @@ class PortfoliosDAO
   }
   public function getById()
   {
-    $client_id = $_SESSION['client_id'];
-    $stm = $this->pdo->prepare("SELECT * FROM portfolios WHERE client_id = :client_id");
-    $stm->bindParam(":client_id", $client_id);
+    $employee_id = $_SESSION['employee_id'];
+    $stm = $this->pdo->prepare("SELECT * FROM portfolios WHERE employee_id = :employee_id");
+    $stm->bindParam(":employee_id", $employee_id);
     $stm->execute();
     return $stm->fetch(PDO::FETCH_ASSOC);
   }
