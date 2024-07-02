@@ -76,6 +76,13 @@ class PortfoliosController
           } else {
             echo json_encode(['error' => 'Get transaction with error']);
           }
+        } else if ($this->endpoint === '/portfolios/balance') {
+          $balance = $this->client_current_account->getByIdSession();
+          if ($balance) {
+            echo json_encode($balance);
+          } else {
+            echo json_encode(['error' => 'Get balance with error']);
+          }
         }
         break;
       case 'POST':

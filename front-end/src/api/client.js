@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   getClient()
+  getBalance()
 })
 function getClient() {
   axios.get(`${apiBaseUrl}/client/profile`)
@@ -46,6 +47,38 @@ function getClient() {
 
       logout.innerHTML += profile_logout
 
+    })
+    .catch(error => error)
+}
+
+function getBalance() {
+  axios.get(`${apiBaseUrl}/portfolios/balance`)
+    .then(response => {
+      const balance = response.data
+
+      const money = document.querySelector('#money')
+      money.innerHTML = ''
+
+      const row = `<div class="h-full py-16 px-10 bg-white dark:bg-muted-1000 rounded-xl border border-muted-200 dark:border-muted-800
+        shadow-xl shadow-muted-400/10 dark:shadow-muted-800/10">
+        <div class="h-full flex flex-col justify-between gap-7">
+          <h4 class="font-heading font-semibold text-sm uppercase text-muted-400">
+            Money
+          </h4>
+          <div>
+            <span
+              class="font-sans font-medium text-4xl text-muted-800 dark:text-white before:content-[''] before:text-xl">
+              ${balance.balance} Kzs
+            </span>
+          </div>
+
+          <div class="space-y-1">
+            <p class="font-sans text-muted-500">No outgoing transactions yet</p>
+            <div class="w-full h-1 bg-muted-200 dark:bg-muted-800"></div>
+          </div>
+        </div>
+      </div>`
+      money.innerHTML += row
     })
     .catch(error => error)
 }
