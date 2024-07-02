@@ -4,7 +4,6 @@
     "tailwindcss": "^3.4.3"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001629",
     "preline": "^2.1.0"
   }
 }

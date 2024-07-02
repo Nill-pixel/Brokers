@@ -51,7 +51,7 @@ class ClientDAO
     $stm->bindParam(':client_id', $client_id);
     $stm->bindParam(':created_at', $createdString);
     $stm->execute();
-    return ($stm);
+    return $stm;
   }
   public function DeleteClient($id)
   {

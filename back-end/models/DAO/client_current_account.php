@@ -42,8 +42,7 @@ class ClientCurrentAccountDAO
     $stm->bindParam(":client_id", $client_id);
     $stm->execute();
 
-
-    return true;
+    return $stm;
   }
   public function deposit_widraw_client_id($balance, $client_id)
   {

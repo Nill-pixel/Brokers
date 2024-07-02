@@ -69,6 +69,13 @@ class PortfoliosController
               echo json_encode(['error' => 'Get Update portfolios values with error']);
             }
           }
+        } else if ($this->endpoint === '/portfolios/transaction') {
+          $transaction = $this->cash_transaction->get();
+          if ($transaction) {
+            echo json_encode($transaction);
+          } else {
+            echo json_encode(['error' => 'Get transaction with error']);
+          }
         }
         break;
       case 'POST':
@@ -85,15 +92,15 @@ class PortfoliosController
           $amount = $data['amount'];
 
           $client = $this->client_current_account->getByIdSession();
+
           $oldBalance = $client['balance'];
 
           $clientAmount = new ClientCurrentAccountDTO($amount);
 
-          $portfolio = $this->portfolios->getById();
+          $portfolio = $this->portfolios->getByClientId();
           $portfolio_id = $portfolio['id'];
           $type = 'deposit';
 
-          $employee_id = $portfolio['employee_id'];
           $commission_amount = 0.01 * $clientAmount->balance;
           $clientAmount->balance -= $commission_amount;
           $clientAmount->balance += $oldBalance;
@@ -108,7 +115,6 @@ class PortfoliosController
           } else {
             echo json_encode(['error' => 'Error Deposit']);
           }
-          echo json_encode($result);
         } else if ($this->endpoint === '/portfolios/withdraw') {
           $data = json_decode(file_get_contents('php://input'), true);
           $amount = $data['amount'];
@@ -122,7 +128,7 @@ class PortfoliosController
 
             $clientAmount->balance = $newBalance;
 
-            $portfolio = $this->portfolios->getById();
+            $portfolio = $this->portfolios->getByClientId();
             $portfolio_id = $portfolio['id'];
             $type = 'withdrawal';
 
@@ -142,7 +148,7 @@ class PortfoliosController
           $quantity = $data['quantity'];
           $stock = $data['stock'];
 
-          $portfolio = $this->portfolios->getById();
+          $portfolio = $this->portfolios->getByEmplyeeId();
           $portfolio_id = $portfolio['id'];
           $client_id = $portfolio['client_id'];
 

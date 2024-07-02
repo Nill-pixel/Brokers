@@ -9,7 +9,7 @@ class PortfoliosDAO
   {
     $this->pdo = DB::getConnection();
   }
-  public function getById()
+  public function getByEmplyeeId()
   {
     $employee_id = $_SESSION['employee_id'];
     $stm = $this->pdo->prepare("SELECT * FROM portfolios WHERE employee_id = :employee_id");
@@ -17,6 +17,15 @@ class PortfoliosDAO
     $stm->execute();
     return $stm->fetch(PDO::FETCH_ASSOC);
   }
+  public function getByClientId(): array | null
+  {
+    $client_id = $_SESSION['client_id'];
+    $stm = $this->pdo->prepare("SELECT * FROM portfolios WHERE client_id = :client_id");
+    $stm->bindParam(":client_id", $client_id);
+    $stm->execute();
+    return $stm->fetch(PDO::FETCH_ASSOC);
+  }
+
 
   public function getAll()
   {
