@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 04:46 PM
+-- Generation Time: Jul 02, 2024 at 10:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,6 +37,53 @@ CREATE TABLE `cash_transactions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `cash_transactions`
+--
+
+INSERT INTO `cash_transactions` (`id`, `portfolio_id`, `type`, `amount`, `transaction_date`, `created_at`, `updated_at`) VALUES
+(1, 3, 'deposit', 9900.00, '2024-07-01 20:48:01', '2024-07-01 18:48:01', NULL),
+(2, 3, 'deposit', 19800.00, '2024-07-01 20:49:20', '2024-07-01 18:49:20', NULL),
+(3, 3, 'deposit', 10200.00, '2024-07-01 22:31:24', '2024-07-01 20:31:24', NULL),
+(4, 3, 'deposit', 5190.00, '2024-07-02 19:07:27', '2024-07-02 17:07:27', NULL),
+(5, 3, 'deposit', 6180.00, '2024-07-02 19:07:36', '2024-07-02 17:07:36', NULL),
+(6, 3, 'deposit', 7170.00, '2024-07-02 19:07:37', '2024-07-02 17:07:37', NULL),
+(7, 3, 'deposit', 8160.00, '2024-07-02 19:07:37', '2024-07-02 17:07:37', NULL),
+(8, 3, 'deposit', 9150.00, '2024-07-02 19:07:38', '2024-07-02 17:07:38', NULL),
+(9, 3, 'deposit', 12120.00, '2024-07-02 19:10:02', '2024-07-02 17:10:02', NULL),
+(10, 3, 'deposit', 15090.00, '2024-07-02 19:10:28', '2024-07-02 17:10:28', NULL),
+(11, 3, 'deposit', 16080.00, '2024-07-02 19:12:34', '2024-07-02 17:12:34', NULL),
+(12, 3, 'deposit', 16179.00, '2024-07-02 19:14:04', '2024-07-02 17:14:04', NULL),
+(13, 3, 'deposit', 16188.90, '2024-07-02 19:14:58', '2024-07-02 17:14:58', NULL),
+(14, 3, 'deposit', 16198.80, '2024-07-02 19:17:26', '2024-07-02 17:17:26', NULL),
+(15, 3, 'deposit', 16208.70, '2024-07-02 19:19:49', '2024-07-02 17:19:49', NULL),
+(16, 3, 'deposit', 17198.70, '2024-07-02 19:30:30', '2024-07-02 17:30:30', NULL),
+(17, 3, 'deposit', 18188.70, '2024-07-02 19:30:36', '2024-07-02 17:30:36', NULL),
+(18, 3, 'deposit', 19178.70, '2024-07-02 19:30:48', '2024-07-02 17:30:48', NULL),
+(19, 3, 'deposit', 20168.70, '2024-07-02 19:30:50', '2024-07-02 17:30:50', NULL),
+(20, 3, 'deposit', 21158.70, '2024-07-02 19:30:52', '2024-07-02 17:30:52', NULL),
+(21, 3, 'deposit', 22148.70, '2024-07-02 19:30:53', '2024-07-02 17:30:53', NULL),
+(22, 3, 'deposit', 22247.70, '2024-07-02 19:31:07', '2024-07-02 17:31:07', NULL),
+(23, 3, 'deposit', 23237.70, '2024-07-02 19:31:21', '2024-07-02 17:31:21', NULL),
+(24, 3, 'deposit', 24227.70, '2024-07-02 19:31:23', '2024-07-02 17:31:23', NULL),
+(25, 3, 'deposit', 25217.70, '2024-07-02 19:31:32', '2024-07-02 17:31:32', NULL),
+(26, 3, 'deposit', 26207.70, '2024-07-02 19:31:54', '2024-07-02 17:31:54', NULL),
+(27, 3, 'deposit', 26217.60, '2024-07-02 19:42:51', '2024-07-02 17:42:51', NULL),
+(28, 3, 'deposit', 26227.50, '2024-07-02 19:47:09', '2024-07-02 17:47:09', NULL),
+(29, 3, 'deposit', 26237.40, '2024-07-02 19:49:00', '2024-07-02 17:49:00', NULL),
+(30, 3, 'deposit', 26336.40, '2024-07-02 19:49:16', '2024-07-02 17:49:16', NULL),
+(31, 3, 'deposit', 26435.40, '2024-07-02 20:03:05', '2024-07-02 18:03:05', NULL),
+(32, 3, 'withdrawal', 25435.40, '2024-07-02 20:05:13', '2024-07-02 18:05:13', NULL),
+(33, 3, 'deposit', 26425.40, '2024-07-02 20:05:22', '2024-07-02 18:05:22', NULL),
+(34, 3, 'deposit', 27415.40, '2024-07-02 20:07:55', '2024-07-02 18:07:55', NULL),
+(35, 3, 'deposit', 28405.40, '2024-07-02 20:08:31', '2024-07-02 18:08:31', NULL),
+(36, 3, 'withdrawal', 24405.40, '2024-07-02 20:08:39', '2024-07-02 18:08:39', NULL),
+(37, 3, 'withdrawal', 23405.40, '2024-07-02 19:30:21', '2024-07-02 18:30:21', NULL),
+(38, 3, 'withdrawal', 22405.40, '2024-07-02 19:30:58', '2024-07-02 18:30:58', NULL),
+(39, 3, 'deposit', 23395.40, '2024-07-02 19:31:32', '2024-07-02 18:31:32', NULL),
+(40, 3, 'withdrawal', 22395.40, '2024-07-02 19:34:08', '2024-07-02 18:34:08', NULL),
+(41, 3, 'withdrawal', 21395.40, '2024-07-02 20:35:29', '2024-07-02 18:35:29', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -58,10 +105,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `firstName`, `lastName`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(7, 'Stark San', '', 'stark@gmail.com', '$2y$10$NxmcNbDRrMIRbNVT98vqt.Sqvy0FZTjS.R6OKfoU5AQErFlpOnRui', NULL, NULL),
-(9, 'Zaunita zau', '', 'zaunita@gmail.com', '$2y$10$1xuF8rsxzL8noXkOmoTmCec5gROuOBU2QPmV.dFSaEMlxsdQm104q', '2024-06-06 13:49:39', NULL),
-(10, 'Nilvany', 'Sunguessungue', 'nilvanytiago@gmail.com', '$2y$10$moTNxDE5IkfCNaQhmGsxwe6opMgmomP/BGbIxign67l79V1eRtoFe', '2024-06-07 16:15:00', '2024-06-08 13:09:54'),
-(12, 'Himel Fern', '', 'nil@gmail.com', '$2y$10$MvO48RLbbh9MdWyZzZNSGuz80NqHUT.W9mLI43w06vorxiRv.sSnq', '2024-06-07 16:31:03', NULL);
+(1, 'Nilvany', 'Sunguessungue', 'sungue@gmail.com', '$2y$10$6m0xMVIDCo38XqkFiV9TX.b4P0/MCSO7nBGtdKcgu4i0TzEmN1ZX6', '2024-07-01 16:55:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -82,10 +126,7 @@ CREATE TABLE `client_current_accounts` (
 --
 
 INSERT INTO `client_current_accounts` (`id`, `client_id`, `balance`, `created_at`, `updated_at`) VALUES
-(2, 7, 0.00, NULL, NULL),
-(4, 9, 0.00, NULL, NULL),
-(5, 10, 0.00, NULL, NULL),
-(6, 12, 0.00, '2024-06-07 16:31:03', NULL);
+(1, 1, 21395.40, '2024-07-01 16:55:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,6 +137,8 @@ INSERT INTO `client_current_accounts` (`id`, `client_id`, `balance`, `created_at
 CREATE TABLE `employees` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(500) NOT NULL,
   `admission_date` date NOT NULL,
   `resignation_date` date DEFAULT NULL,
   `phone` varchar(255) NOT NULL,
@@ -108,8 +151,8 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`, `admission_date`, `resignation_date`, `phone`, `base_salary`, `created_at`, `updated_at`) VALUES
-(2, 'Antonio Mateus', '2023-01-15', '2024-05-20', '+55123456789', 5000.00, '2024-06-24 14:45:10', NULL);
+INSERT INTO `employees` (`id`, `name`, `email`, `password`, `admission_date`, `resignation_date`, `phone`, `base_salary`, `created_at`, `updated_at`) VALUES
+(1, 'Antonio Mateus', 'ant@gamil.com', '$2y$10$eMD327sb9keFmkJiv8QbtO3QkdnNnIIj9wnwWz8Iy4M9SLm4Yq.c6', '2023-01-15', '2024-05-20', '+55123456789', 5000.00, '2024-07-01 16:51:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -126,6 +169,13 @@ CREATE TABLE `employee_commissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employee_commissions`
+--
+
+INSERT INTO `employee_commissions` (`id`, `employee_id`, `month`, `year`, `commission_amount`, `created_at`, `updated_at`) VALUES
+(6, 1, 7, 2024, 100.00, '2024-07-01 19:48:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +196,7 @@ CREATE TABLE `portfolios` (
 --
 
 INSERT INTO `portfolios` (`id`, `client_id`, `employee_id`, `created_at`, `updated_at`) VALUES
-(1, 7, 2, '2024-06-24 15:07:46', NULL);
+(3, 1, 1, '2024-07-01 17:47:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -164,6 +214,13 @@ CREATE TABLE `portfolio_stocks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `portfolio_stocks`
+--
+
+INSERT INTO `portfolio_stocks` (`id`, `portfolio_id`, `stock_id`, `quantity`, `transaction_value`, `created_at`, `updated_at`) VALUES
+(6, 3, 2, 6, 1500.00, '2024-07-01 20:36:15', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -178,6 +235,13 @@ CREATE TABLE `portfolio_values` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `portfolio_values`
+--
+
+INSERT INTO `portfolio_values` (`id`, `portfolio_id`, `date`, `total_value`, `created_at`, `updated_at`) VALUES
+(1, 3, '2024-07-01', 27000.00, '2024-07-01 21:14:28', '2024-07-01 21:14:51');
 
 -- --------------------------------------------------------
 
@@ -279,7 +343,8 @@ ALTER TABLE `client_current_accounts`
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `employee_commissions`
@@ -300,7 +365,7 @@ ALTER TABLE `portfolios`
 --
 ALTER TABLE `portfolio_stocks`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `portfolio_stocks_portfolio_id_foreign` (`portfolio_id`),
+  ADD UNIQUE KEY `unique_portfolio_stock` (`portfolio_id`,`stock_id`),
   ADD KEY `portfolio_stocks_stock_id_foreign` (`stock_id`);
 
 --
@@ -308,7 +373,7 @@ ALTER TABLE `portfolio_stocks`
 --
 ALTER TABLE `portfolio_values`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `portfolio_values_portfolio_id_foreign` (`portfolio_id`);
+  ADD UNIQUE KEY `unique_portfolio_date` (`portfolio_id`,`date`);
 
 --
 -- Indexes for table `stocks`
@@ -338,49 +403,49 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `cash_transactions`
 --
 ALTER TABLE `cash_transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `client_current_accounts`
 --
 ALTER TABLE `client_current_accounts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employee_commissions`
 --
 ALTER TABLE `employee_commissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `portfolios`
 --
 ALTER TABLE `portfolios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `portfolio_stocks`
 --
 ALTER TABLE `portfolio_stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `portfolio_values`
 --
 ALTER TABLE `portfolio_values`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `stocks`
