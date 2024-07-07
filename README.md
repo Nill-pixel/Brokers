@@ -6,7 +6,6 @@
 - [Primeiros Passos](#primeiros-passos)
   - [Pré-requisitos](#pré-requisitos)
   - [Instalação](#instalacao)
-- [Estrutura do Projeto](#estrutura-do-projeto)
 - [Uso](#uso)
 - [Licença](#licenca)
 
@@ -68,52 +67,6 @@ Você precisará do seguinte software instalado em sua máquina:
 
    - Navegue até `http://localhost/Brokers/back-end/index.php` para acessar o back-end do projeto.
 
-## Estrutura do Projeto <a name="estrutura-do-projeto"></a>
-
-A estrutura do projeto é organizada da seguinte maneira:
-
-```plaintext
-back-end/
-  ├── config/
-  ├── DB/
-  │   ├── db.php
-  │   ├── SessionManager.php
-  ├── controllers/
-  │   ├── ClientController.php
-  │   ├── EmployeeController.php
-  ├── models/
-  │   ├── DAO/
-  │   │   ├── client.php
-  │   │   ├── employee.php
-  │   ├── DTO/
-  │       ├── client.php
-  │       ├── employee.php
-  ├── index.php
-
-front-end/
-  ├── node_modules/
-  ├── src/
-  │   ├── api/
-  │   │   ├── auth.js
-  │   │   ├── client.js
-  │   │   ├── session.js
-  │   ├── auth/
-  │   │   ├── signin.html
-  │   │   ├── signup.html
-  │   ├── css/
-  │   ├── js/
-  │       ├── admin.html
-  │       ├── api.html
-  │       ├── deposit.html
-  │       ├── home.html
-  │       ├── index.html
-  │       ├── updateClient.html
-  │       ├── withdraw.html
-  ├── package-lock.json
-  ├── package.json
-  ├── tailwind.config.js
-  ├── README.md
-```
 
 ## Uso <a name="uso"></a>
 
